@@ -1,18 +1,24 @@
 /* container */
 .dashboard-container {
-    padding: 20px;
-    background-color: #f4f4f4;
-    border-radius: 8px;
+    padding: 3rem;
+    background-color: #A31621;
+    border-radius: 10px;
     max-width: 500px;
-    margin: 20px auto;
+    margin: 1rem auto;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: #FCF7F8 solid 1px;
+    transition: 0.5s;
+}
+
+.dashboard-container:hover{
+    transform: scale(1.1);
 }
 
 /* titulo */
 .dashboard-title {
-    color: #333;
-    font-size: 22px;
+    color: #FCF7F8;
+    font-size: 30px;
     margin-bottom: 10px;
 }
 
@@ -27,12 +33,12 @@
     background-color: #fff;
     padding: 10px;
     margin: 5px 0;
-    border-radius: 5px;
+    border-radius: 15px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 /* mensagem quando não há dados */
 .dashboard-no-data {
     color: #888;
-    font-size: 16px;
+    font-size: 20px;
 }
