@@ -1,20 +1,37 @@
-const cors = require("cors");
-const express = require('express');
-const bodyParser = require('body-parser');
-const airQualityRoutes = require('./routes/airQualityRoutes');
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
-// Middleware para processar JSON
-app.use(express.json()); 
-app.use(bodyParser.json()); 
+// Middleware
 app.use(cors());
+app.use(express.json());
 
-// Usando as rotas da API
-app.use('/api', airQualityRoutes);
+// Banco de dados em memória
+const airQualityData = [];
 
-// Inicia o servidor
-app.listen(PORT, () => {
-    console.log(`Servidor rodando na porta ${PORT}`);
+// Rota para receber dados do sensor
+app.post('/api/air-quality', (req, res) => {
+    const { location, pm25, pm10 } = req.body;
+    const newData = { location, pm25, pm10, timestamp: new Date() };
+
+    airQualityData.push(newData);
+
+    // Mantém apenas os últimos 10 registros para evitar crescimento descontrolado
+    if (airQualityData.length > 10) {
+        airQualityData.shift();
+    }
+
+    res.status(201).json({ message: 'Dados salvos com sucesso!' });
 });
+
+// Rota para buscar os 3 últimos registros
+app.get('/api/air-quality', (req, res) => {
+    res.json(airQualityData.slice(-3)); // Retorna apenas os últimos 3 registros
+});
+
+app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));

@@ -36,3 +36,8 @@ function getAirQualityData(req, res) {
 }
 
 module.exports = { receiveSensorData, getAirQualityData };
+
+
+
+
+

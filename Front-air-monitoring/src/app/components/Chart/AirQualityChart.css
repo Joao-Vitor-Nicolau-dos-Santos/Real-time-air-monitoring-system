@@ -1,0 +1,30 @@
+.chart-container {
+    padding: 3rem;
+    border-radius: 10px;
+    text-align: center;
+    border: #F2F2F2 solid 1px;
+    transition: 0.5s;
+    color: #F2F2F2;
+    
+    width: 100%;
+    height: auto;
+    max-height: 45vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: scale(1);
+    transform-origin: center center;
+}
+
+.chart-container:hover{
+    transform: scale(1.03);
+    border-radius: 20px;
+}
+
+.chart-title {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+  

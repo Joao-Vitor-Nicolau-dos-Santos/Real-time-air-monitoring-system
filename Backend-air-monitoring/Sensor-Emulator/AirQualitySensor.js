@@ -3,7 +3,7 @@ const { v4: uuidv4 } = require('uuid');
 
 // Configuração do emulador
 const SENSOR_ID = uuidv4(); // ID único para o sensor
-const API_URL = 'http://localhost:8000/api/sensor-data';
+const API_URL = 'http://localhost:8000/api/air-quality';
 
 // Função para gerar valores aleatórios de PM2.5 e PM10
 function generateRandomData() {
