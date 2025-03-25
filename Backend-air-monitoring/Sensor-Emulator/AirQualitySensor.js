@@ -27,6 +27,6 @@ async function sendSensorData() {
 }
 
 // Simular medições a cada 60 segundos - alterado para não consumir tanto do banco.
-setInterval(sendSensorData, 60000);
+setInterval(sendSensorData, 10000);
 
 console.log('Emulador de sensor iniciado... Enviando dados a cada 60 segundos.');

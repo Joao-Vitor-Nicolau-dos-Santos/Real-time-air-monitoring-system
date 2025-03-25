@@ -61,7 +61,7 @@ function AirQualityChart() {
     };
 
     fetchData();
-    const interval = setInterval(fetchData, 10000); // Atualiza a cada 10 segundos
+    const interval = setInterval(fetchData, 30000); // Atualiza a cada 30 segundos
 
     return () => clearInterval(interval);
   }, []);
